@@ -45,4 +45,4 @@ describe('verifica o usuário', () => {
     expect(user.login.password).toEqual('1234567890');
   });
 });
-});
+// });
