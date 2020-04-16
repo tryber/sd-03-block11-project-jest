@@ -16,7 +16,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
-  add = jest.fn().mockImplementation((a, b) => a + b);
+  src.add = jest.fn().mockImplementation((a, b) => a + b);
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
     expect(add(8, 37)).toEqual(45);
@@ -52,7 +52,11 @@ describe('verifica as funções e os mocks', () => {
     if (a === 0 && b === 0) {
       return 1;
     }
-    return require.power(a, b);
+    let pow = a;
+    for (let i = 0; i < b - 1; i += 1) {
+      pow = multiply(pow, a);
+    }
+    return pow;
   })
   test('testa função power', () => {
     expect(power(10, 2)).toEqual(100);
