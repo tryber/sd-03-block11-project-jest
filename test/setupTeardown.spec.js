@@ -32,22 +32,22 @@ describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
   specialists.splice(randomSpecialistIndex, 1);
   test('depois da primeira aventura', () => {
-    expect(adventure.specialists.length).toBe(5);
+    expect(specialists.length).toBe(5);
   });
   specialists.splice(randomSpecialistIndex, 1);
   test('depois da segunda aventura', () => {
-    expect(adventure.specialists.length).toBe(4);
+    expect(specialists.length).toBe(4);
   });
   specialists.splice(randomSpecialistIndex, 1);
   test('depois da terceira aventura', () => {
-    expect(adventure.specialists.length).toBe(3);
+    expect(specialists.length).toBe(3);
   });
   specialists.splice(randomSpecialistIndex, 1);
   test('depois da quarta aventura', () => {
-    expect(adventure.specialists.length).toBe(2);
+    expect(specialists.length).toBe(2);
   });
   specialists.splice(randomSpecialistIndex, 1);
   test('depois da quinta aventura', () => {
-    expect(adventure.specialists.length).toBe(1);
+    expect(specialists.length).toBe(1);
   });
 });
