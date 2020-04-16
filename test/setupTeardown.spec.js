@@ -25,28 +25,23 @@ const specialists = [{ nome: 'Tunico', classe: 'Mestre dos Magos' },
                   { nome: 'Ousado', classe: 'Mago' },
                   { nome: 'Anjo Loiro', classe: 'Clérigo' }];
 
-
-const randomSpecialistIndex = Math.floor(Math.random() * specialists.length);
-
 describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
-  specialists.splice(randomSpecialistIndex, 1);
+  beforeEach(() => {
+    specialists.length -= 1;
+  });
   test('depois da primeira aventura', () => {
     expect(specialists.length).toBe(5);
   });
-  specialists.splice(randomSpecialistIndex, 1);
   test('depois da segunda aventura', () => {
     expect(specialists.length).toBe(4);
   });
-  specialists.splice(randomSpecialistIndex, 1);
   test('depois da terceira aventura', () => {
     expect(specialists.length).toBe(3);
   });
-  specialists.splice(randomSpecialistIndex, 1);
   test('depois da quarta aventura', () => {
     expect(specialists.length).toBe(2);
   });
-  specialists.splice(randomSpecialistIndex, 1);
   test('depois da quinta aventura', () => {
     expect(specialists.length).toBe(1);
   });
