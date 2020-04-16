@@ -32,7 +32,7 @@ describe('verifica o usuário', () => {
       street: { number: 1299, name: 'Rochestown Road' },
       city: 'Birr',
       state: 'Wicklow',
-      country: 'Brasil',
+      country: 'Brazil',
       postcode: 16223,
       coordinates: { latitude: '26.2451', longitude: '45.2995' },
       timezone: {
@@ -61,7 +61,7 @@ describe('verifica o usuário', () => {
       thumbnail: 'https://randomuser.me/api/portraits/thumb/women/7.jpg'
     },
     nat: 'IE',
-  };    
+  };
 
   test('verifica se o usuário é o tunico', async () => {
     api.fetchURL = jest.fn().mockResolvedValue(usuario);
