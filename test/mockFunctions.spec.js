@@ -1,5 +1,25 @@
 // const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
+const power = (a, b) => {
+  if (a === 0 && b === 0) {
+    return 1;
+  }
+  let pow = a;
+  for (let i = 0; i < b - 1; i += 1) {
+    pow = multiply(pow, a);
+  }
+  return pow;
+}
+const factorial = a => {
+  let fact = 1;
+  for (let i = 1; i < a + 1; i += 1) {
+    fact *= i;
+  }
+  return fact;
+};
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -24,7 +44,7 @@ describe('verifica as funções e os mocks', () => {
     expect(add(13, -188)).toEqual(-175);
     expect(add(7, 26)).toEqual(33);
   });
-  require.subtract = jest.fn().mockImplementation((a, b) => a - b);
+  // require.subtract = jest.fn().mockImplementation((a, b) => a - b);
   test('testa função subtract', () => {
     expect(subtract(899, 35)).toEqual(864);
     expect(subtract(-17, 333)).toEqual(-350);
@@ -32,7 +52,7 @@ describe('verifica as funções e os mocks', () => {
     expect(subtract(23, -108)).toEqual(131);
     expect(subtract(-133, -29)).toEqual(-104);
   });
-  require.multiply = jest.fn().mockImplementation((a, b) => a * b);
+  // require.multiply = jest.fn().mockImplementation((a, b) => a * b);
   test('testa função multiply', () => {
     expect(multiply(1, 2)).toEqual(2);
     expect(multiply(0, 5)).toEqual(0);
@@ -40,7 +60,7 @@ describe('verifica as funções e os mocks', () => {
     expect(multiply(-12, -7)).toEqual(84);
     expect(multiply(19, 23)).toEqual(437);
   });
-  require.divide = jest.fn().mockImplementation((a, b) => a / b);
+  // require.divide = jest.fn().mockImplementation((a, b) => a / b);
   test('testa função divide', () => {
     expect(divide(169, 13)).toEqual(13);
     expect(divide(-1900, 5)).toEqual(-380);
@@ -48,35 +68,35 @@ describe('verifica as funções e os mocks', () => {
     expect(divide(729, 243)).toEqual(3);
     expect(divide(1331, 11)).toEqual(121);
   });
-  require.add = jest.fn().mockImplementation((a, b) => {
-    if (a === 0 && b === 0) {
-      return 1;
-    }
-    let pow = a;
-    for (let i = 0; i < b - 1; i += 1) {
-      pow = multiply(pow, a);
-    }
-    return pow;
-  })
-  test('testa função power', () => {
-    expect(power(10, 2)).toEqual(100);
-    expect(power(2, 10)).toEqual(1024);
-    expect(power(5, 5)).toEqual(3125);
-    expect(power(1, 10)).toEqual(1);
-    expect(power(0, 0)).toEqual(1);
-  });
-  require.factorial = jest.fn().mockImplementation(a => {
-    let fact = 1;
-    for (let i = 1; i < a + 1; i += 1) {
-      fact *= i;
-    }
-    return fact;
-  });
-  test('testa função factorial', () => {
-    expect(factorial(5)).toEqual(120);
-    expect(factorial(10)).toEqual(3628800);
-    expect(factorial(3)).toEqual(6);
-    expect(factorial(8)).toEqual(40320);
-    expect(factorial(2)).toEqual(2);
-  });
+  //require.power = jest.fn().mockImplementation((a, b) => {
+//   if (a === 0 && b === 0) {
+//     return 1;
+//   }
+//   let pow = a;
+//   for (let i = 0; i < b - 1; i += 1) {
+//     pow = multiply(pow, a);
+//   }
+//   return pow;
+// })
+test('testa função power', () => {
+  expect(power(10, 2)).toEqual(100);
+  expect(power(2, 10)).toEqual(1024);
+  expect(power(5, 5)).toEqual(3125);
+  expect(power(1, 10)).toEqual(1);
+  expect(power(0, 0)).toEqual(1);
+});
+// require.factorial = jest.fn().mockImplementation(a => {
+//   let fact = 1;
+//   for (let i = 1; i < a + 1; i += 1) {
+//     fact *= i;
+//   }
+//   return fact;
+// });
+test('testa função factorial', () => {
+  expect(factorial(5)).toEqual(120);
+  expect(factorial(10)).toEqual(3628800);
+  expect(factorial(3)).toEqual(6);
+  expect(factorial(8)).toEqual(40320);
+  expect(factorial(2)).toEqual(2);
+});
 });
