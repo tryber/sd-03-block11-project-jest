@@ -20,7 +20,3 @@ describe("o retorno do telefonema", () => {
     return answerPhone(false).catch(reject => expect(reject).toEqual('Infelizmente não podemos atender...'));
   });
 });
-ssihyfgu
-FormDatadsd
-defaultStatusfssdf
-ffsdfsf
