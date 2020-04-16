@@ -15,6 +15,28 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('verifica as funções e os mocks', () => {
+  // const addFunction = jest
+  // .spyOn(add)
+  // .mockImplementation((a, b) => a + b);
+  let add = jest.fn().mockImplementation((a, b) => a + b);
+  let subtract = jest.fn().mockImplementation((a, b) => a - b);
+  let multiply = jest.fn().mockImplementation((a, b) => a * b);
+  let divide = jest.fn().mockImplementation((a, b) => a / b);
+  let power = jest.fn().mockImplementation((a, b) => Math.pow(a, b));
+  // let factorial = jest.fn().mockImplementation((a, b) => a * b);
+
+  // let factorial = (a) => {
+  //   let fact = 0;
+  //   for (let i = a; i < a; i -= 1) {
+  //     fact += a;
+  //   }
+  //   return fact;
+  // };
+
+  function factorial(a) { if (a ===0) { return 1; } else { return a * factorial( a - 1 ); }}
+
+  // It doesnt work with const
+
   // Crie suas mock functions aqui
   
   test('testa função add', () => {
