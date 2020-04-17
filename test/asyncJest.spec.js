@@ -10,13 +10,20 @@ a função recebe como parâmetro true e false, respectivamente.
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
+/* const answerPhone = answer => new Promise(function (resolve, reject) {
+  setTimeout(answer ? resolve('Oi!') : reject('Infelizmente não podemos atender...'), 3000);
+}); */
+
 describe("o retorno do telefonema", () => {
-  test("atende", () => {
-    assert.fail();
-    // Insira seu teste assíncrono aqui
+  test("atende", async () => {
+    const response = await answerPhone(true);
+    expect(response).toBe('Oi!');
   });
-  test("ocupado", () => {
-    assert.fail();
-    // Insira seu teste assíncrono aqui
+  test("ocupado", async () => {
+    try {
+      await answerPhone(false);
+    } catch (error) {
+      expect(error).toBe('Infelizmente não podemos atender...');
+    }
   });
 });
