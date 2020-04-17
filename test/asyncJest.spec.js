@@ -11,18 +11,14 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe("o retorno do telefonema", () => {
+  // assert.fail();
   test("atende", () => {
-    assert.fail();
-    answerPhone().then(
-      expect('true').toBe('Oi!')
-    )
+    return expect(answerPhone(true)).resolves.toBe('Oi!');
     // Insira seu teste assíncrono aqui
   });
   test("ocupado", () => {
-    assert.fail();
-    answerPhone().then(
-      expect('false').toBe('Infelizmente não podemos atender...')
-    )
-    // Insira seu teste assíncrono aqui
+    // assert.fail();
+    return expect(answerPhone(false)).rejects.toBe('Infelizmente não podemos atender...');
   });
+    // Insira seu teste assíncrono aqui
 });
