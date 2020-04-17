@@ -54,14 +54,7 @@ describe('verifica as funções e os mocks', () => {
     expect(divide(1331, 11)).toEqual(121);
   });
   test('testa função power', () => {
-    power.mockImplementation((n1, n2) => {
-      let n3 = n1;
-      for (let i = 0; i < n2 - 1; i += 1) {
-        n3 = (n3 * n1);
-      }
-      if (n2 === 0) n3 = 1;
-      return n3;
-    });
+    power.mockImplementation((n1, n2) =>  n1 ** n2);
 
     expect(power(10, 2)).toEqual(100);
     expect(power(2, 10)).toEqual(1024);
@@ -71,12 +64,9 @@ describe('verifica as funções e os mocks', () => {
   });
   test('testa função factorial', () => {
     factorial.mockImplementation((n) => {
-      var f = [];
-      if (n == 0 || n == 1)
+      if (n == 0 || n == 1){
         return 1;
-      if (f[n] > 0)
-        return f[n];
-      return f[n] = factorial(n - 1) * n;
+      }return n * factorial(n - 1); 
     });
 
     expect(factorial(5)).toEqual(120);
