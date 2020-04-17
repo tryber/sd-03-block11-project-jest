@@ -13,10 +13,11 @@ O foco aqui é a utilização de mock functions.
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
+jest.mock('../src/mockFunctions');
 
 describe('verifica as funções e os mocks', () => {
-  // Crie suas mock functions aqui
-  
+  add.mockImplementation((n1, n2) => n1 + n2);
+
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
     expect(add(8, 37)).toEqual(45);
@@ -25,6 +26,8 @@ describe('verifica as funções e os mocks', () => {
     expect(add(7, 26)).toEqual(33);
   });
   test('testa função subtract', () => {
+    subtract.mockImplementation((n1, n2) => n1 - n2);
+
     expect(subtract(899, 35)).toEqual(864);
     expect(subtract(-17, 333)).toEqual(-350);
     expect(subtract(45, 97)).toEqual(-52);
@@ -32,6 +35,8 @@ describe('verifica as funções e os mocks', () => {
     expect(subtract(-133, -29)).toEqual(-104);
   });
   test('testa função multiply', () => {
+    multiply.mockImplementation((n1, n2) => n1 * n2);
+
     expect(multiply(1, 2)).toEqual(2);
     expect(multiply(0, 5)).toEqual(0);
     expect(multiply(-4, 9)).toEqual(-36);
@@ -39,6 +44,8 @@ describe('verifica as funções e os mocks', () => {
     expect(multiply(19, 23)).toEqual(437);
   });
   test('testa função divide', () => {
+    divide.mockImplementation((n1, n2) => n1 / n2);
+
     expect(divide(169, 13)).toEqual(13);
     expect(divide(-1900, 5)).toEqual(-380);
     expect(divide(42, 7)).toEqual(6);
@@ -46,6 +53,15 @@ describe('verifica as funções e os mocks', () => {
     expect(divide(1331, 11)).toEqual(121);
   });
   test('testa função power', () => {
+    power.mockImplementation((n1, n2) => {
+      let n3 = n1;
+      for (let i = 0; i < n2 - 1; i += 1) {
+        n3 = (n3 * n1);
+      }
+      if (n2 === 0) n3 = 1;
+      return n3;
+    });
+
     expect(power(10, 2)).toEqual(100);
     expect(power(2, 10)).toEqual(1024);
     expect(power(5, 5)).toEqual(3125);
@@ -53,6 +69,15 @@ describe('verifica as funções e os mocks', () => {
     expect(power(0, 0)).toEqual(1);
   });
   test('testa função factorial', () => {
+    factorial.mockImplementation((n) => {
+      var f = [];
+      if (n == 0 || n == 1)
+        return 1;
+      if (f[n] > 0)
+        return f[n];
+      return f[n] = factorial(n - 1) * n;
+    });
+
     expect(factorial(5)).toEqual(120);
     expect(factorial(10)).toEqual(3628800);
     expect(factorial(3)).toEqual(6);
