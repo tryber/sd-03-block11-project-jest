@@ -8,7 +8,7 @@ describe('verifica as funções e os mocks', () => {
   mockFunctions.multiply.mockImplementation((num1, num2) => num1 * num2);
   mockFunctions.divide.mockImplementation((num1, num2) => num1 / num2);
   mockFunctions.power.mockImplementation((num1, num2) => num1 ** num2);
-  mockFunctions.factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
+  mockFunctions.factorial.mockImplementation(n => (n === 0 || n === 1) ? 1 : n * factorial(n - 1));
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
