@@ -1,4 +1,4 @@
-const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
+let { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 
 /*
 Criamos uma série de funções com eficiência duvidosa.
@@ -16,7 +16,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
-  
+
   test('testa função add', () => {
     add = jest.fn().mockImplementation((a, b) => a + b);
     expect(add(1, 2)).toEqual(3);
