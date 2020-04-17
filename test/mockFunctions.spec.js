@@ -1,27 +1,15 @@
 const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 
-/*
-Criamos uma série de funções com eficiência duvidosa.
-Elas estão no arquivo 'src/mockFunctions.js'.
-Crie mock functions para cada uma das operações de modo que os cálculos sejam feitos corretamente,
-não como estão sendo feitos no arquivo original.
-A idéia é que os novos testes sobrescrevam os testes
-importados apenas na suite de testes abaixo.
-
-Importante! A correção de código via mock functions não é uma aplicação usual.
-O foco aqui é a utilização de mock functions.
-
-ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
-*/
+jest.mock('../src/mockFunctions')
 
 describe('verifica as funções e os mocks', () => {
-  add.jest.fn((num1, num2) => num1 + num2);
-  subtract.jest.fn((num1, num2) => num1 - num2);
-  multiply.jest.fn((num1, num2) => num1 * num2);
-  divide.jest.fn((num1, num2) => num1 / num2);
-  power.jest.fn((num1, num2) => num1 ** num2);
-  factorial.jest.fn(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
-
+  add.add.mockImplementation((num1, num2) => num1 + num2);
+  subtract.subtract.mockImplementation((num1, num2) => num1 - num2);
+  multiply.multiply.mockImplementation((num1, num2) => num1 * num2);
+  divide.divide.mockImplementation((num1, num2) => num1 / num2);
+  power.power.mockImplementation((num1, num2) => num1 ** num2);
+  factorial.factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
+  
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
     expect(add(8, 37)).toEqual(45);
