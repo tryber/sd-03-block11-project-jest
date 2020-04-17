@@ -18,6 +18,7 @@ PS: Os codinomes dos aventureiros são reais! Tentem descobrir quem é quem!
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
+afterEach(() => console.log("O grande Heroi : ", adventure.specialists));
 
 describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
@@ -36,7 +37,6 @@ describe('quem sobreviveu?', () => {
     expect(adventure.specialists.length).toBe(2);
   });
   test('depois da quinta aventura', () => {
-    afterEach(() => console.log("O grande Heroi : ", adventure.specialists));
     expect(adventure.specialists.length).toBe(1);    
   });  
 });
