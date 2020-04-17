@@ -1,6 +1,7 @@
 const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 
 /*
+
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
 Crie mock functions para cada uma das operações de modo que os cálculos sejam feitos corretamente,
