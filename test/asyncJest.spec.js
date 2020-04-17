@@ -12,23 +12,21 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('o retorno do telefonema', () => {
   test('atende', async () => {
-    expect(answerPhone(true)).resolves.toBe('Oi!');
     expect(await answerPhone(true)).toBe('Oi!');
-    answerPhone(true).then(action => expect(action).toBe('Oi!'));
+    // return answerPhone(false).then(action => expect(action).toBe('Oi!'));
+    return expect(answerPhone(true)).resolves.toBe('Oi!');
   });
 
   test('ocupado', async () => {
-    expect(answerPhone(false))
-      .rejects.toBe('Infelizmente não podemos atender...');
-
     try {
       await answerPhone(false);
     } catch (err) {
       expect(err).toBe('Infelizmente não podemos atender...');
     }
 
-    answerPhone(false)
-      .catch(err =>
-        expect(err).toBe('Infelizmente não podemos atender...'));
+    // return answerPhone(false).catch(err =>
+      // expect(err).toBe('Infelizmente não podemos atender...'))
+     return expect(answerPhone(false))
+      .rejects.toBe('Infelizmente não podemos atender...');
+    });
   });
-});
