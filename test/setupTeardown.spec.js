@@ -21,8 +21,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 afterEach(() => {
   const surviver = adventure.specialists[0];
   console.log(
-  `${surviver.nome}, the ${surviver.classe} is the only survivor`
-  )
+  `${surviver.nome}, the ${surviver.classe} is the only survivor`);
 });
 describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
