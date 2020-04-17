@@ -21,7 +21,8 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
-
+  beforeEach(() => adventure.randomAttack());
+  beforeEach(() => console.log("Sobraram : ",adventure.specialists));
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
@@ -35,6 +36,7 @@ describe('quem sobreviveu?', () => {
     expect(adventure.specialists.length).toBe(2);
   });
   test('depois da quinta aventura', () => {
-    expect(adventure.specialists.length).toBe(1);
-  });
+    afterEach(() => console.log("O grande Heroi : ", adventure.specialists));
+    expect(adventure.specialists.length).toBe(1);    
+  });  
 });
