@@ -15,8 +15,13 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('verifica as funções e os mocks', () => {
-  // Crie suas mock functions aqui
-  
+  add.jest.fn((num1, num2) => num1 + num2);
+  subtract.jest.fn((num1, num2) => num1 - num2);
+  multiply.jest.fn((num1, num2) => num1 * num2);
+  divide.jest.fn((num1, num2) => num1 / num2);
+  power.jest.fn((num1, num2) => num1 ** num2);
+  factorial.jest.fn(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
+
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
     expect(add(8, 37)).toEqual(45);
