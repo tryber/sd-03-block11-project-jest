@@ -26,6 +26,10 @@ describe('quem sobreviveu?', () => {
     mockRandoAttack();
   });
 
+  afterEach(() => {
+    console.log(adventure.specialists)
+  })
+
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
