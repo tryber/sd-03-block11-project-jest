@@ -1,5 +1,6 @@
-const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
-
+// const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
+const mockFunctions = require('../src/mockFunctions');
+jest.mock('../src/mockFunctions');
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -18,11 +19,23 @@ describe('verifica as funções e os mocks', () => {
   // const addFunction = jest
   // .spyOn(add)
   // .mockImplementation((a, b) => a + b);
-  let add = jest.fn().mockImplementation((a, b) => a + b);
-  let subtract = jest.fn().mockImplementation((a, b) => a - b);
-  let multiply = jest.fn().mockImplementation((a, b) => a * b);
-  let divide = jest.fn().mockImplementation((a, b) => a / b);
-  let power = jest.fn().mockImplementation((a, b) => Math.pow(a, b));
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.divide.mockImplementation((a, b) => a / b);
+  mockFunctions.power.mockImplementation((a, b) => Math.pow(a, b));
+  mockFunctions.factorial.mockImplementation((a) => (a === 0) ? 1 : a * mockFunctions.factorial( a - 1 ));
+
+  //   if (a === 0) { return 1;
+//   } else { return a * mockFunctions.factorial( a - 1 ); }
+// });
+
+  // let add = jest.fn().mockImplementation((a, b) => a + b);
+  // let subtract = jest.fn().mockImplementation((a, b) => a - b);
+  // let multiply = jest.fn().mockImplementation((a, b) => a * b);
+  // let divide = jest.fn().mockImplementation((a, b) => a / b);
+  // let power = jest.fn().mockImplementation((a, b) => Math.pow(a, b));
+
   // let factorial = jest.fn().mockImplementation((a, b) => a * b);
 
   // let factorial = (a) => {
@@ -33,52 +46,52 @@ describe('verifica as funções e os mocks', () => {
   //   return fact;
   // };
 
-  function factorial(a) { if (a === 0) { return 1; } else { return a * factorial( a - 1 ); }}
+  // function factorial(a) { if (a === 0) { return 1; } else { return a * factorial( a - 1 ); }}
 
   // It doesnt work with const
 
   // Crie suas mock functions aqui
   
   test('testa função add', () => {
-    expect(add(1, 2)).toEqual(3);
-    expect(add(8, 37)).toEqual(45);
-    expect(add(-11, 25)).toEqual(14);
-    expect(add(13, -188)).toEqual(-175);
-    expect(add(7, 26)).toEqual(33);
+    expect(mockFunctions.add(1, 2)).toEqual(3);
+    expect(mockFunctions.add(8, 37)).toEqual(45);
+    expect(mockFunctions.add(-11, 25)).toEqual(14);
+    expect(mockFunctions.add(13, -188)).toEqual(-175);
+    expect(mockFunctions.add(7, 26)).toEqual(33);
   });
   test('testa função subtract', () => {
-    expect(subtract(899, 35)).toEqual(864);
-    expect(subtract(-17, 333)).toEqual(-350);
-    expect(subtract(45, 97)).toEqual(-52);
-    expect(subtract(23, -108)).toEqual(131);
-    expect(subtract(-133, -29)).toEqual(-104);
+    expect(mockFunctions.subtract(899, 35)).toEqual(864);
+    expect(mockFunctions.subtract(-17, 333)).toEqual(-350);
+    expect(mockFunctions.subtract(45, 97)).toEqual(-52);
+    expect(mockFunctions.subtract(23, -108)).toEqual(131);
+    expect(mockFunctions.subtract(-133, -29)).toEqual(-104);
   });
   test('testa função multiply', () => {
-    expect(multiply(1, 2)).toEqual(2);
-    expect(multiply(0, 5)).toEqual(0);
-    expect(multiply(-4, 9)).toEqual(-36);
-    expect(multiply(-12, -7)).toEqual(84);
-    expect(multiply(19, 23)).toEqual(437);
+    expect(mockFunctions.multiply(1, 2)).toEqual(2);
+    expect(mockFunctions.multiply(0, 5)).toEqual(0);
+    expect(mockFunctions.multiply(-4, 9)).toEqual(-36);
+    expect(mockFunctions.multiply(-12, -7)).toEqual(84);
+    expect(mockFunctions.multiply(19, 23)).toEqual(437);
   });
   test('testa função divide', () => {
-    expect(divide(169, 13)).toEqual(13);
-    expect(divide(-1900, 5)).toEqual(-380);
-    expect(divide(42, 7)).toEqual(6);
-    expect(divide(729, 243)).toEqual(3);
-    expect(divide(1331, 11)).toEqual(121);
+    expect(mockFunctions.divide(169, 13)).toEqual(13);
+    expect(mockFunctions.divide(-1900, 5)).toEqual(-380);
+    expect(mockFunctions.divide(42, 7)).toEqual(6);
+    expect(mockFunctions.divide(729, 243)).toEqual(3);
+    expect(mockFunctions.divide(1331, 11)).toEqual(121);
   });
   test('testa função power', () => {
-    expect(power(10, 2)).toEqual(100);
-    expect(power(2, 10)).toEqual(1024);
-    expect(power(5, 5)).toEqual(3125);
-    expect(power(1, 10)).toEqual(1);
-    expect(power(0, 0)).toEqual(1);
+    expect(mockFunctions.power(10, 2)).toEqual(100);
+    expect(mockFunctions.power(2, 10)).toEqual(1024);
+    expect(mockFunctions.power(5, 5)).toEqual(3125);
+    expect(mockFunctions.power(1, 10)).toEqual(1);
+    expect(mockFunctions.power(0, 0)).toEqual(1);
   });
   test('testa função factorial', () => {
-    expect(factorial(5)).toEqual(120);
-    expect(factorial(10)).toEqual(3628800);
-    expect(factorial(3)).toEqual(6);
-    expect(factorial(8)).toEqual(40320);
-    expect(factorial(2)).toEqual(2);
+    expect(mockFunctions.factorial(5)).toEqual(120);
+    expect(mockFunctions.factorial(10)).toEqual(3628800);
+    expect(mockFunctions.factorial(3)).toEqual(6);
+    expect(mockFunctions.factorial(8)).toEqual(40320);
+    expect(mockFunctions.factorial(2)).toEqual(2);
   });
 });
