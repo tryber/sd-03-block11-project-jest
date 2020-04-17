@@ -40,7 +40,7 @@ describe('verifica o usuário', () => {
     }
   }
 
-  api.fetchURL = jest.fn().mockResolvedValue(tunicoUser)
+  api.fetchURL = jest.fn().mockResolvedValue(tunicoUser);
 
   test('verifica se o usuário é o tunico', async () => {
     return api.fetchURL().then((user) => {
