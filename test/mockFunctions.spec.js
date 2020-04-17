@@ -3,12 +3,12 @@ const { add, subtract, multiply, divide, power, factorial } = require('../src/mo
 jest.mock('../src/mockFunctions')
 
 describe('verifica as funções e os mocks', () => {
-  add.add.mockImplementation((num1, num2) => num1 + num2);
-  subtract.subtract.mockImplementation((num1, num2) => num1 - num2);
-  multiply.multiply.mockImplementation((num1, num2) => num1 * num2);
-  divide.divide.mockImplementation((num1, num2) => num1 / num2);
-  power.power.mockImplementation((num1, num2) => num1 ** num2);
-  factorial.factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
+  add.mockImplementation((num1, num2) => num1 + num2);
+  subtract.mockImplementation((num1, num2) => num1 - num2);
+  multiply.mockImplementation((num1, num2) => num1 * num2);
+  divide.mockImplementation((num1, num2) => num1 / num2);
+  power.mockImplementation((num1, num2) => num1 ** num2);
+  factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
   
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
