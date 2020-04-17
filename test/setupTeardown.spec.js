@@ -29,7 +29,6 @@ describe('quem sobreviveu?', () => {
   });
   test('depois da segunda aventura', () => {
     spyAttack();
-
     expect(adventure.specialists.length).toBe(4);
   });
   test('depois da terceira aventura', () => {
