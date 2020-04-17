@@ -1,4 +1,4 @@
-const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
+const mockFunctions = require('../src/mockFunctions');
 
 /*
 Criamos uma série de funções com eficiência duvidosa.
@@ -41,15 +41,14 @@ describe('verifica as funções e os mocks', () => {
     expect(add2(-11, 25)).toEqual(14);
     expect(add2(13, -188)).toEqual(-175);
     expect(add2(7, 26)).toEqual(33);
-  });
-  
+
   test('testa função subtract', () => {
     expect(subtract2(899, 35)).toEqual(864);
     expect(subtract2(-17, 333)).toEqual(-350);
     expect(subtract2(45, 97)).toEqual(-52);
     expect(subtract2(23, -108)).toEqual(131);
     expect(subtract2(-133, -29)).toEqual(-104);
-  });
+   });
   
   test('testa função multiply', () => {
     expect(multiply2(1, 2)).toEqual(2);
