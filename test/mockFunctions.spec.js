@@ -1,16 +1,14 @@
 const mockFunctions = require('../src/mockFunctions');
 
-jest.mock('../src/mockFunctions')
+jest.mock('../src/mockFunctions');
 
 describe('verifica as funções e os mocks', () => {
-  add.mockImplementation((num1, num2) => num1 + num2);
-  subtract.mockImplementation((num1, num2) => num1 - num2);
-  multiply.mockImplementation((num1, num2) => num1 * num2);
-  divide.mockImplementation((num1, num2) => num1 / num2);
-  power.mockImplementation((num1, num2) => num1 ** num2);
-  factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
-  
-  // Crie suas mock functions aqui
+  mockFunctions.add.mockImplementation((num1, num2) => num1 + num2);
+  mockFunctions.subtract.mockImplementation((num1, num2) => num1 - num2);
+  mockFunctions.multiply.mockImplementation((num1, num2) => num1 * num2);
+  mockFunctions.divide.mockImplementation((num1, num2) => num1 / num2);
+  mockFunctions.power.mockImplementation((num1, num2) => num1 ** num2);
+  mockFunctions.factorial.mockImplementation(n => (n === 0 || n === 1 ? 1 : n * factorial(n - 1)));
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
