@@ -26,7 +26,7 @@ describe('o retorno do telefonema', () => {
 
     // return answerPhone(false).catch(err =>
       // expect(err).toBe('Infelizmente não podemos atender...'))
-     return expect(answerPhone(false))
+    return expect(answerPhone(false))
       .rejects.toBe('Infelizmente não podemos atender...');
-    });
   });
+});
