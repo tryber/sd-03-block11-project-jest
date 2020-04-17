@@ -35,7 +35,7 @@ describe('verifica o usuário', () => {
       password: '1234567890' }
     };
   api.fetchURL = jest.fn().mockResolvedValue(user);
-
+  // Essa propriedade é necessária para funções assíncronas. Caso contrário o mockReturnValue resolveria.
   test('verifica se o usuário é o tunico', async () => {
     return api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
