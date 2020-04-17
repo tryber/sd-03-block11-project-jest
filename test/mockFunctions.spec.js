@@ -1,4 +1,4 @@
-const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
+let { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 
 /*
 Criamos uma série de funções com eficiência duvidosa.
@@ -15,9 +15,16 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('verifica as funções e os mocks', () => {
-  // Crie suas mock functions aqui
-  
+  add = jest.fn().mockImplementation((a, b) => a + b);
+  subtract = jest.fn().mockImplementation((a, b) => a - b);
+  multiply = jest.fn().mockImplementation((a, b) => a * b);
+  divide = jest.fn().mockImplementation((a, b) => (b !== 0 ? a / b : undefined));
+  power = jest.fn().mockImplementation((a, b) => a ** b);
+  factorial = jest.fn().mockImplementation(n => (n === 1 || n === 0 ? 1 : n * factorial(n - 1)));
+
   test('testa função add', () => {
+    add();
+    expect(add).toHaveBeenCalled();
     expect(add(1, 2)).toEqual(3);
     expect(add(8, 37)).toEqual(45);
     expect(add(-11, 25)).toEqual(14);
