@@ -41,6 +41,7 @@ describe('verifica as funções e os mocks', () => {
     expect(add2(-11, 25)).toEqual(14);
     expect(add2(13, -188)).toEqual(-175);
     expect(add2(7, 26)).toEqual(33);
+  });
 
   test('testa função subtract', () => {
     expect(subtract2(899, 35)).toEqual(864);
