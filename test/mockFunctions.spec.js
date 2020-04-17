@@ -1,5 +1,5 @@
 const mockFunctions = require('../src/mockFunctions');
-​
+
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -27,8 +27,7 @@ describe('verifica as funções e os mocks', () => {
       return 1;
     } return a * mockFunctions.factorial(a - 1);
   });
-  // Crie suas mock functions aqui
-​
+
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
     expect(mockFunctions.add(8, 37)).toEqual(45);
