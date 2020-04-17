@@ -1,4 +1,3 @@
-// const { add, subtract, multiply, divide, power, factorial } = require('../src/mockFunctions');
 const mockFunctions = require('../src/mockFunctions');
 
 /*
