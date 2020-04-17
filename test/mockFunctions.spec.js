@@ -14,8 +14,65 @@ O foco aqui é a utilização de mock functions.
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
+jest.mock('../src/mockFunctions');
+function optionA() {
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.divide.mockImplementation(
+    (a, b) => (b !== 0 ? a / b : undefined));
+  mockFunctions.power.mockImplementation((a, b) => a ** b);
+  mockFunctions.factorial.mockImplementation(n =>
+    (n === 1 || n === 0 ? 1 : n * mockFunctions.factorial(n - 1)));
+}
+
+function optionB() {
+  mockFunctions.add
+    .mockReturnValueOnce(3)
+    .mockReturnValueOnce(45)
+    .mockReturnValueOnce(14)
+    .mockReturnValueOnce(-175)
+    .mockReturnValueOnce(33);
+
+  mockFunctions.subtract
+    .mockReturnValueOnce(864)
+    .mockReturnValueOnce(-350)
+    .mockReturnValueOnce(-52)
+    .mockReturnValueOnce(131)
+    .mockReturnValueOnce(-104);
+
+  mockFunctions.multiply
+    .mockReturnValueOnce(2)
+    .mockReturnValueOnce(0)
+    .mockReturnValueOnce(-36)
+    .mockReturnValueOnce(84)
+    .mockReturnValueOnce(437);
+
+  mockFunctions.divide
+    .mockReturnValueOnce(13)
+    .mockReturnValueOnce(-380)
+    .mockReturnValueOnce(6)
+    .mockReturnValueOnce(3)
+    .mockReturnValueOnce(121)
+
+  mockFunctions.power
+  .mockReturnValueOnce(100)
+  .mockReturnValueOnce(1024)
+  .mockReturnValueOnce(3125)
+  .mockReturnValueOnce(1)
+  .mockReturnValueOnce(1);
+
+  mockFunctions.factorial
+    .mockReturnValueOnce(120)
+    .mockReturnValueOnce(3628800)
+    .mockReturnValueOnce(6)
+    .mockReturnValueOnce(40320)
+    .mockReturnValueOnce(2);
+}
+
 describe('verifica as funções e os mocks', () => {
-  // Crie suas mock functions aqui
+  optionA();
+  // optionB();
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
