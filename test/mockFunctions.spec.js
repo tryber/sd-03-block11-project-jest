@@ -1,5 +1,5 @@
 const mockFunctions = require('../src/mockFunctions');
-​
+
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
