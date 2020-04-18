@@ -20,34 +20,28 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('quem sobreviveu?', () => {
-  //  adventure.randomAttack = jest.fn();
+  
+  beforeEach(() => adventure.randomAttack());
+  afterEach(() => console.log(
+    `Aventureiros restantes: ${adventure.specialists.map(element => element.nome)}`));
 
   test('depois da primeira aventura', () => {
-    adventure.randomAttack();
-    console.log(`Aventureiros restantes: ${adventure.specialists.map(element => element.nome)}`);
     expect(adventure.specialists.length).toBe(5);
   });
 
   test('depois da segunda aventura', () => {
-    adventure.randomAttack();
-    console.log(`Aventureiros restantes: ${adventure.specialists.map(element => element.nome)}`);
     expect(adventure.specialists.length).toBe(4);
   });
 
   test('depois da terceira aventura', () => {
-    adventure.randomAttack();
-    console.log(`Aventureiros restantes: ${adventure.specialists.map(element => element.nome)}`);
     expect(adventure.specialists.length).toBe(3);
   });
 
   test('depois da quarta aventura', () => {
-    adventure.randomAttack();
-    console.log(`Aventureiros restantes: ${adventure.specialists.map(element => element.nome)}`);
     expect(adventure.specialists.length).toBe(2);
   });
   
   test('depois da quinta aventura', () => {
-    adventure.randomAttack();
     console.log(`E o sobrevivente é... ${adventure.specialists[0].nome}!!`);
     expect(adventure.specialists.length).toBe(1);
   });
