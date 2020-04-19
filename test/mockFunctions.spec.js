@@ -64,17 +64,20 @@ describe('verifica as funções e os mocks', () => {
     expect(mockFunctions.power(0, 0)).toEqual(1);
   });
   test('testa função factorial', () => {
+    expect.assertions(5);
+    mockFunctions.factorial = jest.fn().mockImplementation((numFac) => {
+      let num = 1;
+      // if (num === 0 || num === 1)
+      // return 1;
+      for (let i = 2; i <= numFac; i += 1) {
+        num *= i
+      }
+      return num;
+    })
     expect(mockFunctions.factorial(5)).toEqual(120);
     expect(mockFunctions.factorial(10)).toEqual(3628800);
     expect(mockFunctions.factorial(3)).toEqual(6);
     expect(mockFunctions.factorial(8)).toEqual(40320);
     expect(mockFunctions.factorial(2)).toEqual(2);
   });
-//   test('testa função factorial', () => {
-//     expect(factorial(5)).toEqual(120);
-//     expect(factorial(10)).toEqual(3628800);
-//     expect(factorial(3)).toEqual(6);
-//     expect(factorial(8)).toEqual(40320);
-//     expect(factorial(2)).toEqual(2);
-//   });
 });
