@@ -1,5 +1,7 @@
 const mockFunctions = require('../src/mockFunctions');
 
+jest.mock('../src/mockFunctions');
+
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -16,6 +18,32 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
+  // mockFunctions.add = jest.fn()
+  //   .mockReturnValueOnce(3)
+  //   .mockReturnValueOnce(45)
+  //   .mockReturnValueOnce(14)
+  //   .mockReturnValueOnce(-175)
+  //   .mockReturnValueOnce(33);
+
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.divide.mockImplementation((a, b) => a / b);
+  mockFunctions.power.mockImplementation((a, b) => a ** b);
+  // mockFunctions.factorial.mockImplementation((a) => {
+  //   if (a === 0) {
+  //     return 1;
+  //   }
+  //   a * a(a - 1)
+  //   return a;
+  // });
+  mockFunctions.factorial.mockReturnValueOnce(120)
+    .mockReturnValueOnce(3628800)
+    .mockReturnValueOnce(6)
+    .mockReturnValueOnce(40320)
+    .mockReturnValue(2);
+
+  // let mockFunctions = jest.spyOn(factorial, 'factorial');
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
