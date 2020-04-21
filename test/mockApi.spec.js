@@ -22,28 +22,27 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
+// fetch.mockImplementation(() => Promise.resolve({
+//   json: () => Promise.resolve(tunico),
+const tunico = {
+  gender: 'Masculino',
+  name: {
+    first: 'Antônio',
+    last: 'Britto',
+  },
+  location: {
+    country: 'Brasil',
+  },
+  email: 'tunico@bol.com.br',
+  login: {
+    username: 'tunicao123',
+    password: '1234567890',
+  },
+};
+// para api resolvida = mockResolvedValue, rejeitada = mockRejectValue
 describe('verifica o usuário', () => {
   // Crie sua mock da função fetchURL() aqui
-  const tunico = {
-    user: {
-      gender: 'Masculino',
-      name: {
-        first: 'Antônio',
-        last: 'Britto',
-      },
-      location: {
-        country: 'Brasil',
-      },
-      email: 'tunico@bol.com.br',
-      login: {
-        username: 'tunicao123',
-        password: 1234567890,
-      },
-    },
-  };
-
-  fetch.mockImplementation(() => Promise.resolve({
-    json: () => Promise.resolve(tunico),
+  api.fetchURL = jest.fn().mockResolvedValue(tunico);
 
   test('verifica se o usuário é o tunico', async () => {
     return api.fetchURL().then((user) => {
