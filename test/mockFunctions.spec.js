@@ -60,12 +60,12 @@ describe('verifica as funções e os mocks', () => {
   });
   test('testa função factorial', () => {
     expect.assertions(5);
-    mockFunctions.factorial = jest.fn().mockImplementation((n) => {
-      if (num === 0)
-        { return 1; }
+    mockFunctions.factorial = jest.fn().mockImplementation(function fat(n) {
+      if (n === 0)
+        { return 1 }
       else
-        { return num * n( num - 1 ); }
-  })
+        { return n * fat(n - 1) }
+    })
     expect(mockFunctions.factorial(5)).toEqual(120);
     expect(mockFunctions.factorial(10)).toEqual(3628800);
     expect(mockFunctions.factorial(3)).toEqual(6);
