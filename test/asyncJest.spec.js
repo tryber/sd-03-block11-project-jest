@@ -16,6 +16,6 @@ describe("o retorno do telefonema", () => {
     return answerPhone('Oi!').then(e => expert(e).toEqual('Oi!'));
   });
   test("ocupado", () => {
-    retunr answerPhone().catch((e) => expect(e).toEqual('Infelizmente não podemos atender...'));
+    return answerPhone().catch((e) => expect(e).toEqual('Infelizmente não podemos atender...'));
   });
 });
