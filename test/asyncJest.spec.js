@@ -13,7 +13,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 describe ('o retorno do telefonema', () => {
   test("atende", async () => {
     const retorno = await answerPhone (true);
-    expect(response).toBe('Oi');
+    expect(retorno).toBe('Oi');
   });
     // Insira seu teste assíncrono aqui
   test('ocupado', async () => {
