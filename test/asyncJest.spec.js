@@ -12,7 +12,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe("o retorno do telefonema", () => {
   test("atende", () => {
-    return answerPhone('oi').then(data => {
+    return answerPhone('oii').then(data => {
       expect(data).toBe('Oi!');
     });
   });
