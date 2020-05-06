@@ -26,7 +26,7 @@ describe("o retorno do telefonema", () => {
     // assert.fail();
     // Insira seu teste assíncrono aqui
     try{
-      const test = await answerPhone(false)
+      await answerPhone(false)
     } catch(error){
       expect(error).toEqual('Infelizmente não podemos atender...')
     };
