@@ -16,7 +16,10 @@ describe("o retorno do telefonema", () => {
     expect(answer).toBe('Oi!');
   });
   test("ocupado", async () => {
-    const answer = await answerPhone(false);
-    expect(answer).toBe('Infelizmente não podemos atender...')
+    try {
+      await answerPhone(false);
+    } catch (error) {
+      expect(error).toBe('Infelizmente não podemos atender...')
+    }
   });
 });
