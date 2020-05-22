@@ -61,7 +61,7 @@ describe('verifica o usuário', () => {
       },
       nat: 'IE'
     };
-    api.fetchURL = jest.fn.mockResolvedValue(mockResponse);
+    api.fetchURL = jest.fn().mockResolvedValue(mockResponse);
     return api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
       expect(user.name.first).toEqual('Antônio');
