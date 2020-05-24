@@ -62,7 +62,7 @@ describe('verifica o usuário', () => {
   };
 
   api.fetchURL = jest.fn().mockResolvedVAlue(user);
-  const data = api.fetchURL;
+  const data = await api.fetchURL;
   expect(data.name.first).toBe('Deborah');
   expect(data.gender).toBe('female');
   expect(data.phone).toBe('021-953-7205');
